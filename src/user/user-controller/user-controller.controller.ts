@@ -1,0 +1,37 @@
+import { Body, Controller,Get, Post, Render, Req, Res } from '@nestjs/common';
+import { Request, Response, response } from 'express';
+import { request } from 'http';
+import { User } from 'src/model/user';
+import { users } from 'src/model/users';
+import { UserServiceService } from 'src/services/user-service/user-service.service';
+
+@Controller('user-controller')
+export class UserControllerController {
+
+    constructor(private readonly userService: UserServiceService) {
+    }
+    
+    @Get()
+    getUsers() : User[] {
+        return this.userService.getUsers();     
+    }
+
+     @Post()
+     createUser(@Body('email') email: string, @Body('password') password: string, @Body('created_at') created_at: Date,
+        @Body('updated_at') updated_at: Date,  @Body('first_name') first_name: string,  @Body('last_name') last_name: string) {
+        this.userService.createUser(email, password, created_at, updated_at, first_name, last_name);
+        return {
+            msg: "User succesfully added",
+        };
+     }
+
+     @Post('login')
+     login(@Body('email') email: string, @Body('password') password: string) {
+        this.userService.login(email, password);
+        return {
+            msg: "Succesfully!",
+        }
+     }
+
+}
+

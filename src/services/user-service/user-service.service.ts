@@ -1,0 +1,47 @@
+import { Body, Injectable, UnauthorizedException } from '@nestjs/common';
+import { userInfo } from 'os';
+import { User } from 'src/model/user';
+import { users } from 'src/model/users';
+import {v4 as uuidv4} from 'uuid'
+
+@Injectable()
+export class UserServiceService {
+
+    private usersInfo = users; 
+    
+    getUsers(): User[] {
+        return this.usersInfo;
+    }
+
+    //Promise return User or undefind
+    async getUser(email:string): Promise<User | undefined> {
+      return this.usersInfo.find(user => user.email === email);
+    }
+
+    createUser(email: string, password: string, created_at: Date, updated_at: Date, first_name: string, last_name: string) {
+        const id = uuidv4()
+        const newUser = new User(id, email, password, created_at, updated_at, first_name, last_name);
+        this.usersInfo.push(newUser)
+        return id;
+    }
+
+    async validateUser(email: string, password: string): Promise<any> {
+        const user = await this.getUser(email);
+        if (user && user.password == password) {
+            return user;
+        }
+        return null;
+    }
+
+    async login(email: string, pass: string) {
+        const user = await this.validateUser(email, pass);
+
+        if(!user) {
+            return 'Something went wrong! Try again!'
+        }
+        return user;
+    }
+
+ }
+
+
