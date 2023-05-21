@@ -1,0 +1,16 @@
+Prvi deo zadatka je bilo upoznavanje sa tim kako kreirati node js aplikaciju koristeci nestjs i typescript.
+
+1) Kreiranje novog Nest projekta npm i -g @nestjs/cli
+2) nest new project-name (nest new application)
+3) Pokretanje aplikacije npm run start
+4) Otvaranje stranice http://localhost:3000/
+
+20ak minuta
+
+Drugi deo zadatka postavljanje koda na git-u
+
+1)Podesavanje SSH kljuca
+2)Pravljenje novog repozitorijuma
+3)Commit-ovanje koda
+
+30min 
