@@ -19,10 +19,7 @@ export class UserControllerController {
 
     @Get(':email')
     findOne(@Param('email') email: string) {
-        const user = this.userService.findOne(email);
-        return {
-            user,
-        }
+         this.userService.findOne(email);
     }
     
      @Post()
