@@ -1,16 +1,23 @@
-Prvi deo zadatka je bilo upoznavanje sa tim kako kreirati node js aplikaciju koristeci nestjs i typescript.
+First step was introduction with node js and how to create application with nestjs and typescriot.
 
-1) Kreiranje novog Nest projekta npm i -g @nestjs/cli
+1) Create new Nestjs project npm i -g @nestjs/cli
 2) nest new project-name (nest new application)
-3) Pokretanje aplikacije npm run start
-4) Otvaranje stranice http://localhost:3000/
+3) Running application npm run start
+4) Testing
 
-20ak minuta
+20 min
 
-Drugi deo zadatka postavljanje koda na git-u
+Second part was to post a code on git
 
-1)Podesavanje SSH kljuca
-2)Pravljenje novog repozitorijuma
-3)Commit-ovanje koda
+1)Create SSH kez
+2)Create repository
+3)Commit code
 
-30min 
+30 min
+
+Third part was to create CRUD operations and testing RestAPIs
+
+1)Reading documentation Nestjs, Restfulapi, JWT token
+2)Create CRUD operations and testing 
+
+6,7h
