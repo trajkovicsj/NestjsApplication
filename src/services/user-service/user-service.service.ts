@@ -24,22 +24,15 @@ export class UserServiceService {
         return id;
     }
 
-    async validateUser(email: string, password: string): Promise<any> {
-        const user = await this.findOne(email);
-        if (user && user.password == password) {
-            return user;
-        }
-        return null;
-    }
 
-    async login(email: string, pass: string) {
-        const user = await this.validateUser(email, pass);
+    // async login(email: string, pass: string) {
+    //     const user = await this.validateUser(email, pass);
 
-        if (!user) {
-           throw new UnauthorizedException
-        }
-        return user;
-    }
+    //     if (!user) {
+    //        throw new UnauthorizedException
+    //     }
+    //     return user;
+    // }
 
 }
 
