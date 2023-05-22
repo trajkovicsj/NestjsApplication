@@ -37,7 +37,7 @@ export class UserServiceService {
         const user = await this.validateUser(email, pass);
 
         if(!user) {
-            return 'Something went wrong! Try again!'
+            throw new UnauthorizedException
         }
         return user;
     }
