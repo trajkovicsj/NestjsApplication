@@ -19,14 +19,13 @@ export class AuthGuard implements CanActivate {
             const payload = await this.jwtService.verifyAsync(token, {
                 secret: jwtConstants.secret
             })
-                request['userId'] = payload.userId;
+                request['user'] = payload;
+                
                 }catch {
                     throw new UnauthorizedException();
                 }
-               if(token && request == 1) {
+            
                 return true;
-                }
-                 msg: 'You are not administrator!'
             }
 
             private extractTokenFromHeader(request: Request): string | undefined {

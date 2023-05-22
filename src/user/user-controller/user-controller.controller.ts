@@ -33,14 +33,5 @@ export class UserControllerController {
         };
      }
 
-    //  @Post('login')
-    //  login(@Body('email') email: string, @Body('password') password: string) {
-    //     this.userService.login(email, password);
-    //     return {
-    //         email,
-    //         msg: "Succesfully!"
-    //     }
-    //  }
-
 }
 

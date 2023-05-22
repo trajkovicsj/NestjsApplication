@@ -24,16 +24,6 @@ export class UserServiceService {
         return id;
     }
 
-
-    // async login(email: string, pass: string) {
-    //     const user = await this.validateUser(email, pass);
-
-    //     if (!user) {
-    //        throw new UnauthorizedException
-    //     }
-    //     return user;
-    // }
-
 }
 
 
