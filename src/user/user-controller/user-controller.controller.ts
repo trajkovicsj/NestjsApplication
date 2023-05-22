@@ -1,4 +1,4 @@
-import { Body, Controller,Get, Post, Render, Req, Res } from '@nestjs/common';
+import { Body, Controller,Get, Param, Post, Render, Req, Res } from '@nestjs/common';
 import { Request, Response, response } from 'express';
 import { request } from 'http';
 import { User } from 'src/model/user';
@@ -10,12 +10,21 @@ export class UserControllerController {
 
     constructor(private readonly userService: UserServiceService) {
     }
-    
-    @Get()
+
+    @Get('getUsers')
     getUsers() : User[] {
         return this.userService.getUsers();     
     }
+  
 
+    @Get(':email')
+    findOne(@Param('email') email: string) {
+        const user = this.userService.findOne(email);
+        return {
+            user,
+        }
+    }
+    
      @Post()
      createUser(@Body('email') email: string, @Body('password') password: string, @Body('created_at') created_at: Date,
         @Body('updated_at') updated_at: Date,  @Body('first_name') first_name: string,  @Body('last_name') last_name: string) {
@@ -29,7 +38,8 @@ export class UserControllerController {
      login(@Body('email') email: string, @Body('password') password: string) {
         this.userService.login(email, password);
         return {
-            msg: "Succesfully!",
+            email,
+            msg: "Succesfully!"
         }
      }
 

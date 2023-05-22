@@ -2,20 +2,19 @@ import { Body, Injectable, UnauthorizedException } from '@nestjs/common';
 import { userInfo } from 'os';
 import { User } from 'src/model/user';
 import { users } from 'src/model/users';
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 @Injectable()
 export class UserServiceService {
 
-    private usersInfo = users; 
-    
+    private usersInfo = users;
+
     getUsers(): User[] {
         return this.usersInfo;
     }
 
-    //Promise return User or undefind
-    async getUser(email:string): Promise<User | undefined> {
-      return this.usersInfo.find(user => user.email === email);
+    findOne(email: string) {
+       return this.usersInfo.find(user => user.email === email);
     }
 
     createUser(email: string, password: string, created_at: Date, updated_at: Date, first_name: string, last_name: string) {
@@ -26,7 +25,7 @@ export class UserServiceService {
     }
 
     async validateUser(email: string, password: string): Promise<any> {
-        const user = await this.getUser(email);
+        const user = await this.findOne(email);
         if (user && user.password == password) {
             return user;
         }
@@ -36,12 +35,12 @@ export class UserServiceService {
     async login(email: string, pass: string) {
         const user = await this.validateUser(email, pass);
 
-        if(!user) {
-            throw new UnauthorizedException
+        if (!user) {
+           throw new UnauthorizedException
         }
         return user;
     }
 
- }
+}
 
 
