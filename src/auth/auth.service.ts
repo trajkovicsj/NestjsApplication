@@ -4,7 +4,7 @@ import { UserServiceService } from 'src/services/user-service/user-service.servi
 
 @Injectable()
 export class AuthService {
-
+    
     constructor(private userService: UserServiceService, private jwtService: JwtService) {}
 
     async validateUser(email: string, password: string): Promise<any> {

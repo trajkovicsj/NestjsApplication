@@ -7,14 +7,23 @@ import { users } from 'src/model/users';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
 
 @Controller('user-controller')
-export class UserControllerController {
+export default class UserControllerController {
 
     constructor(private readonly userService: UserServiceService) {
     }
 
+    @Get('numberOfUsers')
+     userCounter() {
+        const usersNumber = this.userService.userCounter();
+        return {
+            msg: 'Number of users',
+            usersNumber,
+        }
+     }
+
     @Get('getUsers')
     getUsers() : User[] {
-        return this.userService.getUsers();     
+        return this.userService.getUsers();
     }
   
 
@@ -32,6 +41,9 @@ export class UserControllerController {
             msg: "User succesfully added",
         };
      }
+
+
+     
 
 }
 

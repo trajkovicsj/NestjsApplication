@@ -24,6 +24,14 @@ export class UserServiceService {
         return id;
     }
 
+    userCounter() {
+        let counter = 0;
+        for(let i = 0; i < this.usersInfo.length; i++) {
+            counter++;
+        }
+        return counter;
+    }
+
 }
 
 

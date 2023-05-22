@@ -24,7 +24,7 @@ Content-Type: application/json
         "password": "123456",
         "created_at": "2023-05-16T00:00:00.000Z",
         "updated_at": "2023-05-20T00:00:00.000Z",
-        "first_name": "Mihajlo",
+        "first_name": "Danijela",
         "last_name": "Trajkovic"
 }
 
@@ -37,5 +37,9 @@ Content-Type: application/json
         "email": "user1@example.com",
         "password": "123456"
 }
+
+###
+
+GET http://localhost:3000/user-controller/numberOfUsers
 
 
