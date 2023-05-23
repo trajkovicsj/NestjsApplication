@@ -1,5 +1,4 @@
-import { Body, Injectable, UnauthorizedException } from '@nestjs/common';
-import { userInfo } from 'os';
+import { Injectable } from '@nestjs/common'; 
 import { User } from 'src/model/user';
 import { users } from 'src/model/users';
 import { v4 as uuidv4 } from 'uuid'
@@ -31,7 +30,6 @@ export class UserServiceService {
         }
         return counter;
     }
-
 }
 
 
