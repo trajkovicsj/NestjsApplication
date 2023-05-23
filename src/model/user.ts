@@ -1,3 +1,5 @@
+import { TodoItems } from "./todo-items";
+
 export class User {
     
     constructor(public id: number,
@@ -6,5 +8,6 @@ export class User {
         public created_at : Date,
         public updated_at: Date,
         public first_name: string,
-        public last_name: string,){}
+        public last_name: string,
+        public tasks: Array<TodoItems>){}
 }

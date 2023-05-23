@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'; 
+import { TodoItems } from 'src/model/todo-items';
 import { User } from 'src/model/user';
 import { users } from 'src/model/users';
 import { v4 as uuidv4 } from 'uuid'
@@ -16,9 +17,9 @@ export class UserServiceService {
        return this.usersInfo.find(user => user.email === email);
     }
 
-    createUser(email: string, password: string, created_at: Date, updated_at: Date, first_name: string, last_name: string) {
+    createUser(email: string, password: string, created_at: Date, updated_at: Date, first_name: string, last_name: string, tasks: Array<TodoItems>) {
         const id = uuidv4()
-        const newUser = new User(id, email, password, created_at, updated_at, first_name, last_name);
+        const newUser = new User(id, email, password, created_at, updated_at, first_name, last_name, tasks);
         this.usersInfo.push(newUser)
         return id;
     }
