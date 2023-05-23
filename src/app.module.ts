@@ -7,11 +7,13 @@ import { HttpModule } from "@nestjs/axios";
 import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { TaskService } from './services/task/task.service';
+import { TaskController } from "./user/task.controller";
 
 @Module({
     imports: [HttpModule, AuthModule, UserModule],
-    controllers: [AppController, UserControllerController],
-    providers: [AppService, UserServiceService, AuthService],
+    controllers: [AppController, UserControllerController, TaskController],
+    providers: [AppService, UserServiceService, AuthService, TaskService],
     
 })
 export class AppModule {

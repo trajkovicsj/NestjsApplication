@@ -33,7 +33,7 @@ export default class UserControllerController {
         @Body('updated_at') updated_at: Date,  @Body('first_name') first_name: string,  @Body('last_name') last_name: string) {
         this.userService.createUser(email, password, created_at, updated_at, first_name, last_name);
         return {
-            msg: "User succesfully added",
+            msg: "User successfully added",
         };
      }
 }

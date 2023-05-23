@@ -28,4 +28,20 @@ Content-Type: application/json
 
 GET http://localhost:3000/user-controller/numberOfUsers
 
+###
+
+GET http://localhost:3000/task/get-tasks
+
+###
+
+POST http://localhost:3000/task/add-task
+Content-Type: application/json
+
+{
+        "taskDescription": "Go fishing",
+        "created_at": "2023-05-23",
+        "updated_at": "2023-05-23",
+        "done": false
+} 
+
 
