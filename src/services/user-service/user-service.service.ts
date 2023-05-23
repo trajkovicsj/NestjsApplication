@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid'
 export class UserServiceService {
 
     private usersInfo = users;
+    private 
 
     getUsers(): User[] {
         return this.usersInfo;
@@ -30,6 +31,21 @@ export class UserServiceService {
             counter++;
         }
         return counter;
+    }
+
+    taskCounter() {
+        let usersTasks : {name: string, numberOfTasks: number} [] = []
+        for (let i = 0; i < this.usersInfo.length; i++) {
+            let counter = 0;
+            for (let j = 0; j < this.usersInfo[i].userTasks.length; j++) {
+                counter++; 
+            }
+            let numberOfTasks = counter;
+            let name = this.usersInfo[i].first_name;
+            usersTasks.push({name, numberOfTasks});
+            
+        }      
+            return usersTasks;
     }
 }
 

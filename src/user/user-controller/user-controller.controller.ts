@@ -23,8 +23,17 @@ export default class UserControllerController {
         }
      }
 
+     @Get('numberOfUserTasks')
+     taskCounter(){
+        const numberOfUserTasks = this.userService.taskCounter();
+        return {
+            msg: 'Number of tasks',
+            numberOfUserTasks
+        }
+     }
+
      @Post()
-     @UseGuards(AuthGuard)
+     //@UseGuards(AuthGuard)
      createUser(@Body('email') email: string, @Body('password') password: string, @Body('created_at') created_at: Date,
         @Body('updated_at') updated_at: Date,  @Body('first_name') first_name: string,
         @Body('last_name') last_name: string, @Body('tasks') tasks: Array<TodoItems>) {
