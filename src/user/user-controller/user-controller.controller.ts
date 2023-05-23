@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from 'src/auth/auth.guard';
 import { TodoItems } from 'src/model/todo-items';
 import { User } from 'src/model/user';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
@@ -23,6 +24,7 @@ export default class UserControllerController {
      }
 
      @Post()
+     @UseGuards(AuthGuard)
      createUser(@Body('email') email: string, @Body('password') password: string, @Body('created_at') created_at: Date,
         @Body('updated_at') updated_at: Date,  @Body('first_name') first_name: string,
         @Body('last_name') last_name: string, @Body('tasks') tasks: Array<TodoItems>) {
