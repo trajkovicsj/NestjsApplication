@@ -8,7 +8,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { TaskService } from './services/task/task.service';
-import { TaskController } from "./user/task.controller";
+import { TaskController } from "./services/task/task.controller";
 
 @Module({
     imports: [HttpModule, AuthModule, UserModule],

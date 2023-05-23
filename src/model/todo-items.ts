@@ -3,5 +3,5 @@ export class TodoItems {
         public taskDescription: string,
         public created_at: Date,
         public updated_at: Date,
-        public done: boolean,){}  
+        public done: boolean){}  
 }

@@ -9,5 +9,5 @@ export class User {
         public updated_at: Date,
         public first_name: string,
         public last_name: string,
-        public tasks: Array<TodoItems>){}
+        public userTasks: Array<TodoItems>){}
 }

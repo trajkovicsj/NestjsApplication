@@ -1,8 +1,6 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
-import { tasks } from 'src/model/tasks';
 import { TodoItems } from 'src/model/todo-items';
 import { User } from 'src/model/user';
-import { TaskService } from 'src/services/task/task.service';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
 
 @Controller('user-controller')

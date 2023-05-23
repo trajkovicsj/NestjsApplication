@@ -8,7 +8,7 @@ export const users : User[] = [{
     updated_at: new Date('2023-05-20'),
     first_name: 'Sandra',
     last_name: 'Trajkovic',
-    tasks : [{
+    userTasks : [{
         taskId : '1',
         taskDescription: "Go fishing",
         created_at: new Date("2023-05-23"),
@@ -24,7 +24,7 @@ export const users : User[] = [{
     updated_at: new Date('2023-05-21'),
     first_name: 'Natalija',
     last_name: 'Trajkovic',
-    tasks : [{
+    userTasks : [{
         taskId : '2',
         taskDescription: "Go shopping",
         created_at: new Date("2023-05-23"),
