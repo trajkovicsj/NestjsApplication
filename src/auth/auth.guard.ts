@@ -21,10 +21,10 @@ export class AuthGuard implements CanActivate {
             })
 
             request['user'] = payload
-            request.userId = payload.userId;
-            if (request.userId == 1) {
-                return true;
-            }
+            //request.userId = payload.userId;
+            // if (request.userId == 1) {
+            //     return true;
+            // }
         } catch {
             throw new ForbiddenException('Invalid authorization token');
         }

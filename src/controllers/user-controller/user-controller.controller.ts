@@ -11,6 +11,7 @@ export default class UserControllerController {
     constructor(private readonly userService: UserServiceService) {}
 
     @Post()
+    //@UseGuards(AuthGuard)
     async createUser(@Res() response, @Body() user: User) {
         const newUser = await this.userService.createUser(user);
         return response.status(HttpStatus.CREATED).json({

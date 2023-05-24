@@ -3,7 +3,7 @@ GET http://localhost:3000/user-controller/getUsers
 ###
 
 POST http://localhost:3000/user-controller 
-Authorization: Bearer {token}
+//Authorization: Bearer {token}
 Content-Type: application/json
 
 {
@@ -14,19 +14,12 @@ Content-Type: application/json
         "first_name": "Danijela",
         "last_name": "Trajkovic",
         "tasks" : [{
-                "taskId" : 1,
+                //"taskId" : 1,
                 "taskDescription": "Go fishing",
                 "created_at": "2023-05-23",
                 "updated_at": "2023-05-23",
-                "done": false
-        },
-        {
-                "taskId" : 2,
-                "taskDescription": "Go shopping",
-                "created_at": "2023-05-21",
-                "updated_at": "2023-05-23",
-                "done": false
-}]
+                "done": 1
+        },]
 }
 
 ###
@@ -61,7 +54,8 @@ Content-Type: application/json
         "taskDescription": "Go fishing",
         "created_at": "2023-05-21",
         "updated_at": "2023-05-23",
-        "done": false
+        "done": false,
+        "userId": 1
 } 
 
 
