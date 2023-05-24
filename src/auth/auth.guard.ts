@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
                 secret: jwtConstants.secret
             })
 
+            request['user'] = payload
             request.userId = payload.userId;
             if (request.userId == 1) {
                 return true;
