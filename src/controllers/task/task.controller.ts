@@ -1,6 +1,6 @@
 import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
 import { TodoItems } from 'src/repositories/todoItems.entity';
-import { TaskService } from 'src/services/task/task.service';
+import { TaskService } from 'src/controllers/task/task.service';
 
 @Controller('task')
 export class TaskController {
