@@ -23,7 +23,6 @@ import { DataSource } from "typeorm";
         password: 'Sandra99.',
         database: 'mydb',
         entities: [User, TodoItems],
-        synchronize: true,
     })],
     controllers: [AppController, UserControllerController, TaskController],
     providers: [AppService, UserServiceService, AuthService, TaskService],

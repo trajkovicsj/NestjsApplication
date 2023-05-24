@@ -5,7 +5,7 @@ import { TodoItems } from "./todoItems.entity";
 export class User {
 
     @PrimaryGeneratedColumn()
-    userId : number;
+    idUser : number;
 
     @Column()
     email: string;

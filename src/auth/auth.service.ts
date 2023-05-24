@@ -12,7 +12,7 @@ export class AuthService {
         if (user && user.password !== password) {
           throw new ForbiddenException();
         }
-        const payload = {userId : user.userId, email: user.email};
+        const payload = {userId : user.idUser, email: user.email};
         return {
             payload,
             access_token: await this.jwtService.signAsync(payload),
