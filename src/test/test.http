@@ -37,7 +37,7 @@ GET http://localhost:3000/user-controller/numberOfUsers
 
 ###
 
-GET http://localhost:3000/user-controller/numberOfUserTasks
+GET http://localhost:3000/user-controller/numberOfTasks
 Content-Type: application/json
 
 ###

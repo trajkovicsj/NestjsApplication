@@ -21,6 +21,14 @@ export class UserServiceService {
     createUser(user: User): Promise<User> {
         return this.userRepository.save(user);
     }
+
+    userCounter() {
+        return this.userRepository.count();
+    }
+
+    taskCounter() {
+        return this.userRepository.query("SELECT idUser, COUNT(idTodoItems) as tasks FROM user u LEFT JOIN todo_items t ON u.idUser = t.User_idUser GROUP BY u.idUser ")
+    }
 }
     // async createUserTask(id: number, task: TodoItems): Promise<TodoItems> {
     //     const user = await this.userRepository.findOneBy({id});

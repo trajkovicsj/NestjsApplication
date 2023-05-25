@@ -1,9 +1,6 @@
 import { Body, Controller, Get, HttpStatus, Param, Post, Res, UseGuards } from '@nestjs/common';
-import { InjectConnection } from '@nestjs/typeorm';
-import { response } from 'express';
+import { retry } from 'rxjs';
 import { AuthGuard } from 'src/auth/auth.guard';
-import { tasks } from 'src/model/tasks';
-import { TodoItems } from 'src/model/todo-items';
 import { User } from 'src/repositories/user.entity';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
 
@@ -29,6 +26,22 @@ export default class UserControllerController {
         })
     }
 
+    @Get('numberOfUsers')
+    async userCounter(@Res() response) {
+        const users = await this.userService.userCounter()
+        return response.status(HttpStatus.OK).json({
+            users
+        })
+    }
+
+    @Get('numberOfTasks')
+    async taskCounter(@Res() response) {
+        const tasks = await this.userService.taskCounter()
+        return response.status(HttpStatus.OK).json({
+            tasks
+        })
+    }
+
     @Get(':email')
     async findOne(@Res() response, @Param('email') email: string) {
         const user = await this.userService.findOne(email)
@@ -36,6 +49,8 @@ export default class UserControllerController {
             user
         })
     }
+
+    
 
 
     // @Get('getUsers')
