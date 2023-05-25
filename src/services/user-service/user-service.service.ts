@@ -27,7 +27,7 @@ export class UserServiceService {
     }
 
     taskCounter() {
-        return this.userRepository.query("SELECT idUser, COUNT(idTodoItems) as tasks FROM user u LEFT JOIN todo_items t ON u.idUser = t.User_idUser GROUP BY u.idUser ")
+        return this.userRepository.query("SELECT idUser, first_name, COUNT(idTodoItems) as tasks FROM user u LEFT JOIN todo_items t ON u.idUser = t.User_idUser GROUP BY u.idUser ")
     }
 }
     // async createUserTask(id: number, task: TodoItems): Promise<TodoItems> {

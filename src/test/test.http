@@ -12,13 +12,13 @@ Content-Type: application/json
         "created_at": "2023-05-16T00:00:00.000Z",
         "updated_at": "2023-05-20T00:00:00.000Z",
         "first_name": "Ivana",
-        "last_name": "Milutinovic"
-        //"tasks" : [{
-               // "taskDescription": "Buy new mobile",
-              //  "created_at": "2023-05-23",
-               // "updated_at": "2023-05-23",
-                //"done": 0
-//}]
+        "last_name": "Milutinovic",
+        "tasks" : [{
+                "taskDescription": "Buy new mobile",
+                "created_at": "2023-05-23",
+                "updated_at": "2023-05-23",
+                "done": 0
+}]
 }
 
 ###
