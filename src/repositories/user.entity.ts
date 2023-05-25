@@ -25,7 +25,7 @@ export class User {
     @Column()
     last_name: string
 
-    @OneToMany(() => TodoItems, task => task.User_idUser)
+    @OneToMany(() => TodoItems, task => task.User_idUser, { cascade: ['insert', 'update'] })
     tasks: TodoItems[];
 
 }

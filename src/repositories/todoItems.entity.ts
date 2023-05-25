@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./user.entity";
 
 @Entity()
@@ -20,5 +20,6 @@ export class TodoItems {
     done: boolean
 
     @ManyToOne(() => User, (User_idUser) => User_idUser.tasks)
-    public User_idUser: User
+    @JoinColumn({name: 'User_idUser'})
+    User_idUser: User
 }

@@ -1,6 +1,7 @@
-import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Post, Req, Res } from '@nestjs/common';
 import { TodoItems } from 'src/repositories/todoItems.entity';
 import { TaskService } from 'src/controllers/task/task.service';
+import { request } from 'https';
 
 @Controller('task')
 export class TaskController {
@@ -16,11 +17,8 @@ export class TaskController {
     }
 
     @Post('add-task')
-    async createTasks(@Res() response, @Body()task: TodoItems){
-        const newTask = await this.taskService.createTask(task);
-        return response.status(HttpStatus.CREATED).json({
-            newTask
-        })
+    async createTasks(@Req() request, @Body()task: TodoItems){
+        return this.taskService.createTask(request.user, task);
     }
 
     // @Get('get-tasks')

@@ -1,6 +1,8 @@
 import { Body, Controller, Get, HttpStatus, Param, Post, Res, UseGuards } from '@nestjs/common';
+import { InjectConnection } from '@nestjs/typeorm';
 import { response } from 'express';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { tasks } from 'src/model/tasks';
 import { TodoItems } from 'src/model/todo-items';
 import { User } from 'src/repositories/user.entity';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
@@ -8,10 +10,10 @@ import { UserServiceService } from 'src/services/user-service/user-service.servi
 @Controller('user-controller')
 export default class UserControllerController {
 
-    constructor(private readonly userService: UserServiceService) {}
+    constructor(private readonly userService: UserServiceService)  {}
 
     @Post()
-    //@UseGuards(AuthGuard)
+    @UseGuards(AuthGuard)
     async createUser(@Res() response, @Body() user: User) {
         const newUser = await this.userService.createUser(user);
         return response.status(HttpStatus.CREATED).json({
@@ -34,6 +36,7 @@ export default class UserControllerController {
             user
         })
     }
+
 
     // @Get('getUsers')
     // getUsers() : User[] {

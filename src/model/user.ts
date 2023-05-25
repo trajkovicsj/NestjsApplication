@@ -1,13 +1,11 @@
 import { TodoItems } from "./todo-items";
 
-export class User {
-    
-    constructor(public id: number,
-        public email : string,
-        public password : string,
-        public created_at : Date,
-        public updated_at: Date,
-        public first_name: string,
-        public last_name: string,
-        public userTasks: Array<TodoItems>){}
+export interface User {
+    id: number,
+    email : string,
+    password : string,
+    created_at : Date,
+    updated_at: Date,
+    first_name: string,
+    last_name: string,
 }

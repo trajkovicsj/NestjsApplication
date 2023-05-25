@@ -1,7 +1,7 @@
-export class TodoItems {
-    constructor(public taskId: string,
-        public taskDescription: string,
-        public created_at: Date,
-        public updated_at: Date,
-        public done: boolean){}  
+export interface TodoItems {
+     taskId: string,
+     taskDescription: string,
+     created_at: Date,
+     updated_at: Date,
+     done: boolean
 }

@@ -1,18 +1,17 @@
-import { Injectable } from '@nestjs/common'; 
+import {Injectable } from '@nestjs/common'; 
 import { InjectRepository } from '@nestjs/typeorm';
-import { TodoItems } from 'src/model/todo-items';
-import { users } from 'src/model/users';
 import { User } from 'src/repositories/user.entity';
 import { Repository } from 'typeorm';
-import { v4 as uuidv4 } from 'uuid'
 
 @Injectable()
 export class UserServiceService {
 
-    constructor(@InjectRepository(User) private userRepository: Repository<User>,){}
+    constructor(
+        @InjectRepository(User) private userRepository: Repository<User>,
+    ){}
 
     getUsers(): Promise<User[]> {
-        return this.userRepository.find();
+        return this.userRepository.find({relations: ['tasks']});
     }
 
     findOne(email: string): Promise<User | null> {
@@ -22,6 +21,16 @@ export class UserServiceService {
     createUser(user: User): Promise<User> {
         return this.userRepository.save(user);
     }
+}
+    // async createUserTask(id: number, task: TodoItems): Promise<TodoItems> {
+    //     const user = await this.userRepository.findOneBy({id});
+    //     if (!user) {
+    //         throw new HttpException('User not found', HttpStatus.BAD_REQUEST)   
+    //     }
+    //     const newTask = this.taskRepository.create({...task, user,});
+    //     const saveTask = this.taskRepository.save(newTask)
+    //     return
+    
 
     //private usersInfo = users;
     // getUsers(): User[] {
@@ -61,6 +70,5 @@ export class UserServiceService {
     //     }      
     //         return usersTasks;
     // }
-}
 
 

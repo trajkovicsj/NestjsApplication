@@ -11,20 +11,15 @@ export class AuthGuard implements CanActivate {
     async canActivate(context: ExecutionContext): Promise<boolean> {
         const request = context.switchToHttp().getRequest();
         const token = this.extractTokenFromHeader(request);
+        const id: number | undefined = request.user?.userId;
 
         if (!token) {
             throw new UnauthorizedException();
         }
         try {
-            const payload = await this.jwtService.verifyAsync(token, {
-                secret: jwtConstants.secret
-            })
-
-            request['user'] = payload
-            //request.userId = payload.userId;
-            // if (request.userId == 1) {
-            //     return true;
-            // }
+            if(id === 1) {
+                return true;
+            }
         } catch {
             throw new ForbiddenException('Invalid authorization token');
         }
