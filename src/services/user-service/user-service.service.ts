@@ -15,7 +15,7 @@ export class UserServiceService {
     }
 
     findOne(email: string): Promise<User | null> {
-        return this.userRepository.findOneBy({email})
+        return this.userRepository.findOneBy({email});
     }
 
     createUser(user: User): Promise<User> {

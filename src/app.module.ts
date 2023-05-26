@@ -14,6 +14,8 @@ import { TaskService } from "./controllers/task/task.service";
 import { UserServiceService } from "./services/user-service/user-service.service";
 import { User } from "./repositories/user.entity";
 import { TodoItems } from "./repositories/todoItems.entity";
+import { JwtModule } from "@nestjs/jwt";
+import { jwtConstants } from "./auth/constants";
 
 
 @Module({
@@ -25,7 +27,11 @@ import { TodoItems } from "./repositories/todoItems.entity";
         password: 'Sandra99.',
         database: 'mydb',
         entities: [User, TodoItems],
-    }), TaskModule],
+    }), TaskModule, JwtModule.register({
+        global:true,
+        secret: jwtConstants.secret,
+        signOptions: {expiresIn: '1d'}
+      })],
     controllers: [AppController, UserControllerController, TaskController],
     providers: [AppService, UserServiceService, AuthService, TaskService],
     

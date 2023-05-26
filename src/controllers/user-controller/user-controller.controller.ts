@@ -1,5 +1,4 @@
 import { Body, Controller, Get, HttpStatus, Param, Post, Res, UseGuards } from '@nestjs/common';
-import { retry } from 'rxjs';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { User } from 'src/repositories/user.entity';
 import { UserServiceService } from 'src/services/user-service/user-service.service';

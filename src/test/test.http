@@ -1,20 +1,20 @@
-GET http://localhost:3000/user-controller/getUsers
+GET http://localhost:8000/user-controller/getUsers
 
 ###
 
-POST http://localhost:3000/user-controller 
-Authorization: Bearer {token}
+POST http://localhost:8000/user-controller 
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMjgzMjAsImV4cCI6MTY4NTIxNDcyMH0.GfzcRv7hWz7p3LFJ9LUGBqJK30QBJB7gkoNDyuKE8C4
 
 {
-        "email": "user6@example.com",
+        "email": "user10@example.com",
         "password": "123456",
         "created_at": "2023-05-16T00:00:00.000Z",
         "updated_at": "2023-05-20T00:00:00.000Z",
-        "first_name": "Ivana",
-        "last_name": "Milutinovic",
+        "first_name": "Lidija",
+        "last_name": "Stojanovic",
         "tasks" : [{
-                "taskDescription": "Buy new mobile",
+                "taskDescription": "Buy new dress",
                 "created_at": "2023-05-23",
                 "updated_at": "2023-05-23",
                 "done": 0
@@ -23,31 +23,30 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/auth/login
+POST http://localhost:8000/auth/login
 Content-Type: application/json
 
 {
-        "email": "user2@example.com",
+        "email": "user1@example.com",
         "password": "123456"
 }
 
 ###
 
-GET http://localhost:3000/user-controller/numberOfUsers
+GET http://localhost:8000/user-controller/numberOfUsers
 
 ###
 
-GET http://localhost:3000/user-controller/numberOfTasks
+GET http://localhost:8000/user-controller/numberOfTasks
 Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/task/get-tasks
+GET http://localhost:8000/task/get-tasks
 
 ###
 
-POST http://localhost:3000/task/add-task
-Authorization: Bearer {token}
+POST http://localhost:8000/task/add-task/
 Content-Type: application/json
 
 {
@@ -55,7 +54,7 @@ Content-Type: application/json
         "created_at": "2023-05-21",
         "updated_at": "2023-05-23",
         "done": false,
-        "userId":
+        "idUser" : 1
 } 
 
 
