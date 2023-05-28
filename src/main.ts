@@ -4,6 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import * as hbs from 'hbs';
 import express from 'express';
+import exp from 'constants';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
@@ -17,6 +18,8 @@ async function bootstrap() {
     app.setViewEngine('hbs');
     app.set('view engine', 'html');
     app.engine('html', require('hbs').__express);
+
+    app.enableCors();
 
   await app.listen(8000);
 

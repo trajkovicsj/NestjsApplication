@@ -22,3 +22,6 @@ Third part was to create CRUD operations and testing RestAPIs
 
 6,7h
 
+--------
+Frontend
+

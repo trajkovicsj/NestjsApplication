@@ -15,13 +15,8 @@ export class TaskService {
         return this.taskRepository.find({relations: ['User_idUser']});
     }
 
-    createTask(user: User, task: TodoItems) {
-        const newTask = this.taskRepository.create({
-            ...task,
-            User_idUser: user
-        })
-        this.taskRepository.save(newTask);
-        return newTask;
+    createTask(task: TodoItems) {
+        return this.taskRepository.save(task);
     }
     
     // private todoTasks = tasks;

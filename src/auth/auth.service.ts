@@ -14,7 +14,7 @@ export class AuthService {
         if(!user || user.password !== password) {
             throw new BadRequestException('invalid credentials')
         }
-        const payload = {sub : user.idUser, email: user.email};
+            const payload = {sub : user.idUser, email: user.email};
         return {
             payload,
             access_token: await this.jwtService.sign(payload, jwtConstants),
