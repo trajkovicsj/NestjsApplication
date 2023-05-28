@@ -9,11 +9,8 @@ export class TaskController {
     constructor(private readonly taskService: TaskService){}
 
     @Get('get-tasks')
-    async getTasks(@Res() response){
-        const tasks = await this.taskService.getTasks()
-        return response.status(HttpStatus.OK).json({
-            tasks
-        })
+    async getTasks(){
+        return this.taskService.getTasks()
     }
 
     @Post('add-task')

@@ -18,27 +18,19 @@ export default class UserControllerController {
     }
 
     @Get('getUsers')
-    async getUsers(@Res() response) {
-        const users = await this.userService.getUsers();
-        return response.status(HttpStatus.OK).json({
-            users
-        })
+    async getUsers() {
+        return this.userService.getUsers();
     }
 
     @Get('numberOfUsers')
-    async userCounter(@Res() response) {
-        const users = await this.userService.userCounter()
-        return response.status(HttpStatus.OK).json({
-            users
-        })
+    async userCounter() {
+        return this.userService.userCounter()
+       
     }
 
     @Get('numberOfTasks')
-    async taskCounter(@Res() response) {
-        const tasks = await this.userService.taskCounter()
-        return response.status(HttpStatus.OK).json({
-            tasks
-        })
+    async taskCounter() {
+       return this.userService.taskCounter()
     }
 
     @Get(':email')

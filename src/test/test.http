@@ -53,8 +53,8 @@ Content-Type: application/json
         "taskDescription": "Go fishing",
         "created_at": "2023-05-21",
         "updated_at": "2023-05-23",
-        "done": false,
-        "idUser" : 1
+        "done": false
+        
 } 
 
 
