@@ -16,16 +16,18 @@ import { User } from "./repositories/user.entity";
 import { TodoItems } from "./repositories/todoItems.entity";
 import { JwtModule } from "@nestjs/jwt";
 import { jwtConstants } from "./auth/constants";
+import * as dotenv from 'dotenv'
 
+dotenv.config()
 
 @Module({
     imports: [HttpModule, AuthModule, UserModule, TypeOrmModule.forRoot({
         type: 'mysql',
-        host: 'localhost',
+        host: process.env.DB_HOST,
         port: 3306,
-        username: 'root',
-        password: 'Sandra99.',
-        database: 'mydb',
+        username: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
         entities: [User, TodoItems],
     }), TaskModule, JwtModule.register({
         global:true,

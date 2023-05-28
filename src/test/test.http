@@ -2,7 +2,7 @@ GET http://localhost:8000/user-controller/getUsers
 
 ###
 
-POST http://localhost:8000/user-controller 
+POST http://localhost:8000/user-controller/register
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMjgzMjAsImV4cCI6MTY4NTIxNDcyMH0.GfzcRv7hWz7p3LFJ9LUGBqJK30QBJB7gkoNDyuKE8C4
 
