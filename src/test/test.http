@@ -4,7 +4,7 @@ GET http://localhost:8000/user-controller/getUsers
 
 POST http://localhost:8000/user-controller/register
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMjgzMjAsImV4cCI6MTY4NTIxNDcyMH0.GfzcRv7hWz7p3LFJ9LUGBqJK30QBJB7gkoNDyuKE8C4
+Authorization: Bearer .eyJzdWIiOjEsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMjgzMjAsImV4cCI6MTY4NTIxNDcyMH0.GfzcRv7hWz7p3LFJ9LUGBqJK30QBJB7gkoNDyuKE8C4
 
 {
         "email": "user10@example.com",
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8000/user-controller/numberOfUsers
+GET http://localhost:8000/user-controller/numberOfUsers 
 
 ###
 
@@ -46,7 +46,15 @@ GET http://localhost:8000/task/get-tasks
 
 ###
 
-POST http://localhost:8000/task/add-task/
+GET http://localhost:8000/task/userTasks
+Content-Type: application/json 
+
+{
+        "User_idUser" : 1
+}
+###
+
+POST http://localhost:8000/task/add-task
 Content-Type: application/json
 
 {

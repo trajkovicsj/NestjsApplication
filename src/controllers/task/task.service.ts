@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { tasks } from 'src/model/tasks';
 import { TodoItems } from 'src/repositories/todoItems.entity';
-import { User } from 'src/repositories/user.entity';
 import { Repository } from 'typeorm';
-import { v4 as uuidv4 } from 'uuid'
 
 @Injectable()
 export class TaskService {
@@ -17,6 +14,14 @@ export class TaskService {
 
     createTask(task: TodoItems) {
         return this.taskRepository.save(task);
+    }
+
+    //  getUserTasks() : Promise<TodoItems[]> {
+    //         return this.taskRepository.find()
+    // }
+
+    getUserTasks(id: number): Promise<TodoItems[]> {
+            return this.taskRepository.query("SELECT taskDescription, done FROM todo_items td WHERE td.User_idUser = " + id)
     }
     
     // private todoTasks = tasks;

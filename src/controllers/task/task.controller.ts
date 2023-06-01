@@ -1,25 +1,37 @@
-import { Body, Controller, Get, HttpStatus, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, Post, Req, Res } from '@nestjs/common';
 import { TodoItems } from 'src/repositories/todoItems.entity';
 import { TaskService } from 'src/controllers/task/task.service';
 import { request } from 'https';
+import { ParamsTokenFactory } from '@nestjs/core/pipes';
+import { Query } from 'typeorm/driver/Query';
 
 @Controller('task')
 export class TaskController {
 
-    constructor(private readonly taskService: TaskService){}
+    constructor(private readonly taskService: TaskService) { }
+
+
+    @Get('userTasks:id')
+    async userTasks(@Param('id') id: number) {
+        return this.taskService.getUserTasks(id)
+    }
 
     @Get('get-tasks')
-    async getTasks(){
+    async getTasks() {
         return this.taskService.getTasks()
     }
 
     @Post('add-task')
-    async createTasks(@Res() response, @Body()task: TodoItems){
+    async createTasks(@Res() response, @Body() task: TodoItems) {
         const newTask = await this.taskService.createTask(task);
         return response.status(HttpStatus.CREATED).json({
             newTask
         })
     }
+    // @Get('userTasks')
+    // async userTasks() {
+    //     return this.taskService.getUserTasks()
+    // }
 
     // @Get('get-tasks')
     // getTasks() {
