@@ -41,9 +41,6 @@ export default class UserControllerController {
         })
     }
 
-    
-
-
     // @Get('getUsers')
     // getUsers() : User[] {
     //     return this.userService.getUsers();

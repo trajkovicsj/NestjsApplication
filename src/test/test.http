@@ -49,9 +49,6 @@ GET http://localhost:8000/task/get-tasks
 GET http://localhost:8000/task/userTasks
 Content-Type: application/json 
 
-{
-        "User_idUser" : 1
-}
 ###
 
 POST http://localhost:8000/task/add-task

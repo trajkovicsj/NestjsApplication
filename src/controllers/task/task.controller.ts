@@ -1,9 +1,6 @@
-import { Body, Controller, Get, HttpStatus, Param, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, Post, Res } from '@nestjs/common';
 import { TodoItems } from 'src/repositories/todoItems.entity';
 import { TaskService } from 'src/controllers/task/task.service';
-import { request } from 'https';
-import { ParamsTokenFactory } from '@nestjs/core/pipes';
-import { Query } from 'typeorm/driver/Query';
 
 @Controller('task')
 export class TaskController {

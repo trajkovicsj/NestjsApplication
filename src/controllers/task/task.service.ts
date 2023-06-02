@@ -16,10 +16,6 @@ export class TaskService {
         return this.taskRepository.save(task);
     }
 
-    //  getUserTasks() : Promise<TodoItems[]> {
-    //         return this.taskRepository.find()
-    // }
-
     getUserTasks(id: number): Promise<TodoItems[]> {
             return this.taskRepository.query("SELECT taskDescription, done FROM todo_items td WHERE td.User_idUser = " + id)
     }
