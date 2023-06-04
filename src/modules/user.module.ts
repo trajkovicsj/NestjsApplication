@@ -9,7 +9,7 @@ import { UserServiceService } from 'src/services/user-service/user-service.servi
 @Module({
 
     controllers: [UserControllerController],
-    imports: [TypeOrmModule.forFeature([User, TodoItems]), AuthModule],
+    imports: [TypeOrmModule.forFeature([User, TodoItems])],
     providers: [UserServiceService],
     exports: [UserServiceService, TypeOrmModule],
 })
