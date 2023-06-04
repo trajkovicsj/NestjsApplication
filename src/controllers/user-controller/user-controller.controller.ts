@@ -11,10 +11,12 @@ export default class UserControllerController {
     @Post('register')
     //@UseGuards(AuthGuard)
     async createUser(@Res() response, @Body() user: User) {
+        const findOne = await this.userService.findOne(user.email);
+        if(findOne) {
+            return response.status(HttpStatus.BAD_REQUEST).json('User alredy exists')
+        }
         const newUser = await this.userService.createUser(user);
-        return response.status(HttpStatus.CREATED).json({
-            newUser
-        })
+        return response.status(HttpStatus.CREATED).json('Uses successfully created')
     }
 
     @Get('getUsers')

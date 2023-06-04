@@ -21,9 +21,7 @@ export class TaskController {
     @Post('add-task')
     async createTasks(@Res() response, @Body() task: TodoItems) {
         const newTask = await this.taskService.createTask(task);
-        return response.status(HttpStatus.CREATED).json({
-            newTask
-        })
+        return response.status(HttpStatus.CREATED).json('Task successfully created')
     }
     // @Get('userTasks')
     // async userTasks() {
