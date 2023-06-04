@@ -25,46 +25,22 @@ export default class UserControllerController {
     }
 
     @Get('numberOfUsers')
-    async userCounter() {
-        return this.userService.userCounter()
-       
-    }
+    userCounter() {
+        const usersNumber = this.userService.userCounter();
+        return {
+            msg: 'Number of users',
+            usersNumber,
+        }
+     }
 
-    @Get('numberOfTasks')
-    async taskCounter() {
-       return this.userService.taskCounter()
-    }
-
-    @Get(':email')
-    async findOne(@Res() response, @Param('email') email: string) {
-        const user = await this.userService.findOne(email)
-        return response.status(HttpStatus.OK).json({
-            user
-        })
-    }
-
-    // @Get('getUsers')
-    // getUsers() : User[] {
-    //     return this.userService.getUsers();
-    // }
-
-    // @Get('numberOfUsers')
-    // userCounter() {
-    //     const usersNumber = this.userService.userCounter();
-    //     return {
-    //         msg: 'Number of users',
-    //         usersNumber,
-    //     }
-    //  }
-
-    //  @Get('numberOfUserTasks')
-    //  taskCounter(){
-    //     const numberOfUserTasks = this.userService.taskCounter();
-    //     return {
-    //         msg: 'Number of tasks',
-    //         numberOfUserTasks
-    //     }
-    //  }
+     @Get('numberOfUserTasks')
+     taskCounter(){
+        const numberOfUserTasks = this.userService.taskCounter();
+        return {
+            msg: 'Number of tasks',
+            numberOfUserTasks
+        }
+     }
 
     //  @Post()
     //  @UseGuards(AuthGuard)
