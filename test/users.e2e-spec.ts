@@ -17,18 +17,18 @@ describe('Users controler E2E test', () => {
 
     describe('create new user POST /user-controller/register', () => {
         const CREATE_USER_URL = '/user-controller/register'
-        // it('should create new user', () => {
-        //     return request(app.getHttpServer()).post(CREATE_USER_URL).send({
-        //         email: "user11@example.com",
-        //         password: "123456",
-        //         created_at: new Date(),
-        //         updated_at: new Date(),
-        //         first_name: "Katarina",
-        //         last_name: "Nikolic",
-        //         tasks: []
-        //     })
-        //         .expect(201)
-        // });
+        it('should create new user', () => {
+            return request(app.getHttpServer()).post(CREATE_USER_URL).send({
+                email: "user12@example.com",
+                password: "123456",
+                created_at: new Date(),
+                updated_at: new Date(),
+                first_name: "Andrija",
+                last_name: "Nikolic",
+                tasks: []
+            })
+                .expect(201)
+        });
         it('should return 400 when invalid email', () => {
             return request(app.getHttpServer()).post(CREATE_USER_URL).send({
                 email: "user10@example.com",

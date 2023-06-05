@@ -15,21 +15,14 @@ describe('Users controler E2E test', () => {
         await app.init()
     });
 
-    it('should create new task', () => {
-        const CREATE_TASK_URL = '/task/add-task'
-        return request(app.getHttpServer()).post(CREATE_TASK_URL).send({
-            taskDescription: 'Go fishing',
-            created_at: new Date(),
-            updated_at: new Date(),
-            done: false,
-            User_idUser: 7
+    describe('Authentication', () => {
+        const URL = '/auth/login';
+        it('should login', () => {
+            return request(app.getHttpServer()).post(URL).send({
+                email: "user1@example.com",
+                password: "123456"
+            })
+            .expect(200)
         })
-            .expect(201)
-    });
-    it('should delete task', () => {
-        const id = 17
-        return request(app.getHttpServer()).delete('/task/delete-task' + id).send({
-        })
-        .expect(200)
     })
 });
