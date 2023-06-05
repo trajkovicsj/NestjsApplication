@@ -9,7 +9,7 @@ export default class UserControllerController {
     constructor(private readonly userService: UserServiceService) { }
 
     @Post('register')
-    //@UseGuards(AuthGuard1)
+   // @UseGuards(AuthGuard1)
     async createUser(@Res() response, @Body() user: User) {
         const findOne = await this.userService.findOne(user.email);
         if (findOne) {
