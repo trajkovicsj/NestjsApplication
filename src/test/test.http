@@ -20,17 +20,17 @@ POST http://localhost:8000/auth/login
 Content-Type: application/json 
 
 {
-        "email": "user2@example.com",
+        "email": "user1@example.com",
         "password": "123456"
 }
 
 ###
 
-GET http://localhost:8000/user-controller/numberOfUsers 
+GET http://localhost:8000/user-controller/numberOfUsers
 
 ###
 
-GET http://localhost:8000/user-controller/numberOfTasks
+GET http://localhost:8000/user-controller/numberOfUserTasks
 Content-Type: application/json
 
 ###
@@ -39,8 +39,9 @@ GET http://localhost:8000/task/get-tasks
 
 ###
 
-GET http://localhost:8000/task/userTasks
+GET http://localhost:8000/task/userTasks?id=1
 Content-Type: application/json 
+
 
 ###
 
@@ -51,8 +52,16 @@ Content-Type: application/json
         "taskDescription": "Go fishing",
         "created_at": "2023-05-21",
         "updated_at": "2023-05-23",
-        "done": false
-        
+        "done": false,
+        "User_idUser": {
+                "idUser": 1,
+                "email": "user1@example.com",
+                "password": "123456",
+                "created_at": "2023-05-16",
+                "updated_at": "2023-05-20",
+                "first_name": "Sandra",
+                "last_name": "Trajkovic"
+        }
 } 
 
 

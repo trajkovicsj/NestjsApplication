@@ -87,9 +87,8 @@
       "^src/(.*)$": "<rootDir>/$1"
     },
     "moduleDirectories": [
-      "node_modules",
-      "src",
-      "repositories"
+      "<rootDir>/../", 
+      "node_modules"
     ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",

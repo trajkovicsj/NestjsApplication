@@ -21,6 +21,6 @@ export class TaskService {
     }
 
     deleteTask(id: number) {
-        return this.taskRepository.query('DELETE FROM todo_item WHERE idTodoItems = ' + id)
+        return this.taskRepository.query('DELETE FROM todo_items td WHERE td.idTodoItems = ' + id)
     }
 }

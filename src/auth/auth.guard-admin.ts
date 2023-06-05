@@ -4,7 +4,7 @@ import { jwtConstants } from "./constants";
 import { Request } from 'express';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard1 implements CanActivate {
 
     constructor(private jwtService: JwtService) { }
 

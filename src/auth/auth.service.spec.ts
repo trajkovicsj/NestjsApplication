@@ -2,9 +2,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
-import { Repository } from 'typeorm';
-import { User } from 'src/repositories/user.entity';
-import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -16,7 +13,7 @@ describe('AuthService', () => {
         provide: UserServiceService,
         useValue: {
           validateUser: jest.fn()
-        }
+        }, 
       }],
     }).compile();
 
