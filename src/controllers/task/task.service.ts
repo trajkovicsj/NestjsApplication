@@ -19,17 +19,8 @@ export class TaskService {
     getUserTasks(id: number): Promise<TodoItems[]> {
             return this.taskRepository.query("SELECT taskDescription, done FROM todo_items td WHERE td.User_idUser = " + id)
     }
-    
-    // private todoTasks = tasks;
 
-    // getTasks(): TodoItems[] {
-    //     return this.todoTasks;
-    // }
-
-    // createTask(taskDescription: string, created_at: Date, updated_at: Date, done: boolean) {
-    //     const taskId = uuidv4()
-    //     const newTask = new TodoItems(taskId, taskDescription, created_at, updated_at, done);
-    //     this.todoTasks.push(newTask)
-    //     return taskId;
-    // }
+    deleteTask(id: number) {
+        return this.taskRepository.query('DELETE FROM todo_item WHERE idTodoItems = ' + id)
+    }
 }

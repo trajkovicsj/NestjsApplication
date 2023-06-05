@@ -6,12 +6,12 @@ POST http://localhost:8000/user-controller/register
 Content-Type: application/json
 
 {
-        "email": "user7@example.com",
+        "email": "user8@example.com",
         "password": "123456",
         "created_at": "2023-05-16T00:00:00.000Z",
         "updated_at": "2023-05-20T00:00:00.000Z",
-        "first_name": "Ivana",
-        "last_name": "Milutinovic"
+        "first_name": "Isidora",
+        "last_name": "Ljujic"
 }
 
 ###

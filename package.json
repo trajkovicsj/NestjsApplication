@@ -86,6 +86,11 @@
     "moduleNameMapper": {
       "^src/(.*)$": "<rootDir>/$1"
     },
+    "moduleDirectories": [
+      "node_modules",
+      "src",
+      "repositories"
+    ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {

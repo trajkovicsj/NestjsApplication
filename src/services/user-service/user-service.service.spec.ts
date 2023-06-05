@@ -4,7 +4,6 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { User } from 'src/repositories/user.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'src/utils/bcrypt'
-import  bcrypt1  from 'bcrypt';
 
 describe('UserServiceService', () => {
   let service: UserServiceService
@@ -18,7 +17,8 @@ describe('UserServiceService', () => {
         useValue: {
           create: jest.fn(),
           save: jest.fn(),
-          findOne: jest.fn()
+          findOne: jest.fn(),
+          findAll: jest.fn()
         }
       }],
     }).compile();
@@ -36,27 +36,14 @@ describe('UserServiceService', () => {
   });
 
   describe('createUser', () => {
-    jest.spyOn(bcrypt, 'encodePassword').mockReturnValue('hashed')
-    it('should encoded password correctly', async () => {
+    it('should create new user with encoded password', async () => {
+      jest.spyOn(bcrypt, 'encodePassword').mockReturnValue('hashed')
       await service.createUser({
         idUser: 1,
         email: "user1@example.com",
         password: "123456",
-        created_at: new Date(),
-        updated_at: new Date(),
-        first_name: "Sandra",
-        last_name: "Trajkovic",
-        tasks: []
-      });
-      expect(bcrypt.encodePassword).toBeCalledWith('123456');
-    });
-    it('should call userRepository.create with correct params', async () => {
-      await service.createUser({
-        idUser: 1,
-        email: "user1@example.com",
-        password: "123456",
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: new Date("2023-06-05T09:41:47.877Z"),
+        updated_at: new Date("2023-06-05T09:41:47.877Z"),
         first_name: "Sandra",
         last_name: "Trajkovic",
         tasks: []
@@ -65,12 +52,12 @@ describe('UserServiceService', () => {
         idUser: 1,
         email: "user1@example.com",
         password: "hashed",
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: new Date("2023-06-05T09:41:47.877Z"),
+        updated_at: new Date("2023-06-05T09:41:47.877Z"),
         first_name: "Sandra",
         last_name: "Trajkovic",
         tasks: []
-      });
+      })
     });
   })
 });

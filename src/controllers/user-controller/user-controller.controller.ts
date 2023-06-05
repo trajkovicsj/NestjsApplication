@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpStatus, Param, Post, Res, UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthGuard } from 'src/auth/auth.guard-admin';
 import { User } from 'src/repositories/user.entity';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
 
@@ -15,13 +15,13 @@ export default class UserControllerController {
         if(findOne) {
             return response.status(HttpStatus.BAD_REQUEST).json('User alredy exists')
         }
-        const newUser = await this.userService.createUser(user);
+        await this.userService.createUser(user);
         return response.status(HttpStatus.CREATED).json('Uses successfully created')
     }
 
     @Get('getUsers')
     async getUsers() {
-        return this.userService.getUsers();
+        return this.userService.findAll();
     }
 
     @Get('numberOfUsers')
@@ -41,21 +41,5 @@ export default class UserControllerController {
             numberOfUserTasks
         }
      }
-
-    //  @Post()
-    //  @UseGuards(AuthGuard)
-    //  createUser(@Body('email') email: string, @Body('password') password: string, @Body('created_at') created_at: Date,
-    //     @Body('updated_at') updated_at: Date,  @Body('first_name') first_name: string,
-    //     @Body('last_name') last_name: string, @Body('tasks') tasks: Array<TodoItems>) {
-    //     this.userService.createUser(email, password, created_at, updated_at, first_name, last_name, tasks);
-    //     return {
-    //         msg: "User successfully added",
-    //     };
-    //  }
-  
-    // @Get(':email')
-    // findOne(@Param('email') email: string) {
-    //      this.userService.findOne(email);
-    // }  
 }
 

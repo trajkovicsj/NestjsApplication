@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Param, Post, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Res } from '@nestjs/common';
 import { TodoItems } from 'src/repositories/todoItems.entity';
 import { TaskService } from 'src/controllers/task/task.service';
 
@@ -20,25 +20,13 @@ export class TaskController {
 
     @Post('add-task')
     async createTasks(@Res() response, @Body() task: TodoItems) {
-        const newTask = await this.taskService.createTask(task);
+        await this.taskService.createTask(task);
         return response.status(HttpStatus.CREATED).json('Task successfully created')
     }
-    // @Get('userTasks')
-    // async userTasks() {
-    //     return this.taskService.getUserTasks()
-    // }
 
-    // @Get('get-tasks')
-    // getTasks() {
-    //     return this.taskService.getTasks();
-    // }
-
-    // @Post('add-task')
-    // createTask(@Body('taskDescription') taskDescription: string, @Body('created_at') created_at: Date,
-    //     @Body('updated_at') updated_at: Date,  @Body('done') done: boolean) {
-    //     this.taskService.createTask(taskDescription, created_at, updated_at, done);
-    //     return {
-    //         msg: "Task successfully added",
-    //     };
-    //  }
+    @Delete('delete-task:id')
+    async deleteTasks(@Res() response, @Param('id') id: number) {
+        await this.taskService.deleteTask(id)
+        return response.status(HttpStatus.OK).json('Task successfully deleted')
+    }
 }
