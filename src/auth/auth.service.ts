@@ -11,9 +11,7 @@ export class AuthService {
 
     async validateUser(email: string, password: string): Promise<any> {
         const user = await this.userService.findOne(email);
-        const secret = 'secret';
-        const pass = bcrypt
-        if(!user || bcrypt.compareSync(user.password, password)) {
+        if(!user || !bcrypt.compareSync(password, user.password)) {
             throw new BadRequestException('invalid credentials')
         }
             const payload = {sub : user.idUser, email: user.email};
