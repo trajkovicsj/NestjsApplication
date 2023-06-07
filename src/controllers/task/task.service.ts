@@ -17,7 +17,7 @@ export class TaskService {
     }
 
     getUserTasks(id: number): Promise<TodoItems[]> {
-            return this.taskRepository.query("SELECT taskDescription, done FROM todo_items td WHERE td.User_idUser = " + id)
+            return this.taskRepository.query("SELECT idTodoItems, taskDescription, done FROM todo_items td WHERE td.User_idUser = " + id)
     }
 
     deleteTask(id: number) {
