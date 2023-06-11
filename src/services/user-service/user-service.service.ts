@@ -34,6 +34,10 @@ export class UserServiceService {
     taskCounter() {
         return this.userRepository.query("SELECT idUser, first_name, COUNT(idTodoItems) as tasks FROM user u LEFT JOIN todo_items t ON u.idUser = t.User_idUser GROUP BY u.idUser ")
     }
+
+    deleteUser(id: number) {
+        return this.userRepository.query('DELETE FROM user u WHERE u.idUser = ' + id)
+    }
 }
 
 

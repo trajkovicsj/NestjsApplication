@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Param, Post, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Res, UseGuards } from '@nestjs/common';
 import { AuthGuard1 } from 'src/auth/auth.guard-admin';
 import { User } from 'src/repositories/user.entity';
 import { UserServiceService } from 'src/services/user-service/user-service.service';
@@ -34,4 +34,9 @@ export default class UserControllerController {
         return this.userService.taskCounter();
     }
 
+    @Delete('delete-user:id')
+    async deleteUser(@Res() response, @Param('id') id: number) {
+        await this.userService.deleteUser(id)
+        return response.status(HttpStatus.OK).json('User successfully deleted')
+    }
 }
